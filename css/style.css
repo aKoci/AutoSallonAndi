@@ -176,6 +176,12 @@ section {
     margin-top: 10px;
 }
 
+.makinat-vecanta .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 10px;
+}
+
 /* Pse ne */
 
 .pse-ne {
