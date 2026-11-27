@@ -4,10 +4,12 @@
     --ngjyra-kryesore: #D6A04A;
     --ngjyra-dyte: #171615;
     --ngjyra-ari: #E8C18A;
-    --sfondi: #F5F4F1;
-    --teksti: #222222;
+    --sfondi: #100F0E;
+    --karta: #1A1816;
+    --vija: #2E2A26;
+    --teksti: #E6E2DA;
     --bardhe: #FFFFFF;
-    --hiri: #777777;
+    --hiri: #A39D92;
 }
 
 * {
@@ -17,10 +19,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--sfondi);
     color: var(--teksti);
-    line-height: 1.6;
+    line-height: 1.7;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -32,8 +34,11 @@ main {
 }
 
 h1, h2, h3 {
-    color: var(--ngjyra-dyte);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    color: var(--bardhe);
     margin-bottom: 15px;
+    letter-spacing: 0.5px;
 }
 
 p {
@@ -43,6 +48,11 @@ p {
 a {
     text-decoration: none;
     color: var(--ngjyra-kryesore);
+    transition: 0.3s;
+}
+
+::placeholder {
+    color: #7D776C;
 }
 
 /* Butonat */
@@ -53,12 +63,14 @@ button,
 .oferta a {
     display: inline-block;
     background-color: var(--ngjyra-kryesore);
-    color: var(--ngjyra-dyte);
-    padding: 12px 25px;
+    color: #111111;
+    padding: 14px 32px;
     border: 1px solid var(--ngjyra-kryesore);
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 2px;
+    font-size: 13px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     cursor: pointer;
     text-align: center;
     transition: 0.3s;
@@ -75,9 +87,12 @@ button:hover,
 /* Header dhe menyja */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: var(--ngjyra-dyte);
-    padding: 15px 5%;
-    border-bottom: 2px solid var(--ngjyra-kryesore);
+    padding: 12px 5%;
+    border-bottom: 1px solid var(--ngjyra-kryesore);
 }
 
 nav {
@@ -88,55 +103,74 @@ nav {
 }
 
 .logo img {
-    height: 60px;
+    display: block;
+    height: 58px;
     width: auto;
 }
 
 nav ul {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     list-style: none;
 }
 
 nav ul li a {
-    color: var(--bardhe);
+    color: #DDD8CE;
+    font-size: 13px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
     color: var(--ngjyra-kryesore);
+    border-bottom-color: var(--ngjyra-kryesore);
 }
 
 /* Seksionet e perbashketa */
 
 section {
-    padding: 40px 5%;
+    padding: 60px 5%;
 }
 
 /* Hero */
 
 .hero {
     background-color: var(--ngjyra-dyte);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.55)),
                       url("../images/kerret.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: var(--bardhe);
     text-align: center;
-    padding: 110px 20px;
+    padding: 150px 20px;
 }
 
 .hero h1 {
     color: var(--ngjyra-kryesore);
-    font-size: 40px;
+    font-size: 54px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 20px auto 0;
+    background-color: var(--ngjyra-kryesore);
 }
 
 .hero p {
-    color: var(--bardhe);
-    font-size: 18px;
+    color: #E0DBD0;
+    font-size: 20px;
+    margin: 20px 0 30px;
 }
 
 /* Makinat e vecanta */
@@ -144,42 +178,70 @@ section {
 .makinat-vecanta {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 40px 5%;
-    text-align: center;
+    gap: 30px;
+    padding: 70px 5%;
 }
 
 .makinat-vecanta h2 {
     grid-column: 1 / -1;
     text-align: center;
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 10px;
+}
+
+.makinat-vecanta h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 14px auto 0;
+    background-color: var(--ngjyra-kryesore);
 }
 
 .makinat-vecanta article {
     width: 100%;
-    padding: 20px;
-    background-color: var(--bardhe);
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-    border-bottom: 3px solid var(--ngjyra-kryesore);
+    padding: 0 0 22px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.makinat-vecanta article:hover {
+    transform: translateY(-6px);
+    border-color: var(--ngjyra-kryesore);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
 
 .makinat-vecanta article img {
+    display: block;
     width: 100%;
-    height: 220px;
+    height: 230px;
     object-fit: cover;
-    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.makinat-vecanta article:hover img {
+    transform: scale(1.05);
 }
 
 .makinat-vecanta article h3 {
-    margin-top: 10px;
+    margin: 20px 22px 6px;
+    font-size: 22px;
+}
+
+.makinat-vecanta article p {
+    margin: 0 22px;
+    color: var(--ngjyra-kryesore);
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .makinat-vecanta .btn {
     grid-column: 1 / -1;
     justify-self: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Pse ne */
@@ -188,119 +250,78 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     text-align: center;
+    background-color: #0C0B0A;
+    border-top: 1px solid var(--vija);
+    border-bottom: 1px solid var(--vija);
+}
+
+.pse-ne h2 {
+    flex: 1 1 100%;
+    font-size: 34px;
+    margin-bottom: 10px;
 }
 
 .pse-ne article {
     flex: 1 1 250px;
-    padding: 25px;
-    background-color: var(--bardhe);
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    max-width: 360px;
+    padding: 35px 28px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-top: 3px solid var(--ngjyra-kryesore);
+    border-radius: 4px;
 }
 
 .pse-ne h3 {
     color: var(--ngjyra-kryesore);
+    font-size: 21px;
+}
+
+.pse-ne p {
+    color: var(--hiri);
+    margin-bottom: 0;
 }
 
 /* Oferta */
 
 .oferta {
-    background-color: var(--ngjyra-dyte);
+    background-image: linear-gradient(135deg, #2A2012, #14110D);
     color: var(--bardhe);
     text-align: center;
-    padding: 45px 20px;
-    margin: 30px 5%;
-    border-radius: 8px;
+    padding: 60px 20px;
+    margin: 60px 5%;
+    border-radius: 4px;
     border: 1px solid var(--ngjyra-kryesore);
 }
 
 .oferta h2 {
     color: var(--ngjyra-kryesore);
+    font-size: 34px;
 }
 
 .oferta p {
-    color: var(--bardhe);
+    color: #D8D3C8;
+    max-width: 600px;
+    margin: 0 auto 25px;
 }
 
 /* makinat */
 
-main:has(.makina) > section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-
-.makina {
-    flex: 1 1 300px;
-    cursor: pointer;
-    max-width: 400px;
-    padding: 20px;
-    background-color: var(--bardhe);
-    border: 1px solid #e2ded6;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-    border-bottom: 3px solid var(--ngjyra-kryesore);
-    transition: 0.3s;
-}
-
-.makina:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
-}
-
-.makina img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.makina h2 {
-    margin: 15px 0 5px;
-    font-size: 24px;
-}
-
-.makina p {
-    color: var(--ngjyra-kryesore);
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.makina ul {
-    list-style: none;
-    margin: 15px 0;
-}
-
-.makina ul li {
-    padding: 6px 0;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.makina aside {
-    background-color: #F3E8D5;
-    padding: 15px;
-    border-radius: 5px;
-}
-
 main:has(.makina) > h1 {
     text-align: center;
-    font-size: 38px;
-    padding: 45px 5% 0;
-    margin-bottom: 8px;
+    font-size: 42px;
+    padding: 60px 5% 0;
+    margin-bottom: 10px;
 }
 
 main:has(.makina) > h1::after {
     content: "";
     display: block;
-    width: 70px;
-    height: 4px;
-    margin: 12px auto 0;
+    width: 60px;
+    height: 3px;
+    margin: 14px auto 0;
     background-color: var(--ngjyra-kryesore);
-    border-radius: 2px;
 }
 
 main:has(.makina) > p {
@@ -312,20 +333,291 @@ main:has(.makina) > p {
 }
 
 main:has(.makina) > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     padding-top: 30px;
+}
+
+.makina {
+    flex: 1 1 300px;
+    max-width: 400px;
+    padding: 0 0 22px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.makina:hover {
+    transform: translateY(-6px);
+    border-color: var(--ngjyra-kryesore);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.makina img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.makina:hover img {
+    transform: scale(1.05);
+}
+
+.makina h2 {
+    margin: 20px 22px 4px;
+    font-size: 24px;
+}
+
+.makina p {
+    margin: 0 22px 8px;
+    color: var(--ngjyra-kryesore);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.makina ul {
+    list-style: none;
+    margin: 10px 22px 20px;
+}
+
+.makina ul li {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--vija);
+    color: #CFCABF;
+    font-size: 15px;
+}
+
+.makina .btn {
+    display: block;
+    margin: 0 22px;
 }
 
 main:has(.makina) > aside {
     text-align: center;
-    margin: 0 5% 45px;
-    padding: 18px;
-    background-color: #F3E8D5;
-    border-left: 5px solid var(--ngjyra-kryesore);
-    border-radius: 5px;
+    margin: 0 5% 60px;
+    padding: 20px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-left: 4px solid var(--ngjyra-kryesore);
+    border-radius: 4px;
 }
 
 main:has(.makina) > aside p {
     margin-bottom: 0;
+}
+
+/* Filtri i katalogut */
+
+.filtri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 30px 5% 0;
+}
+
+.filtri label {
+    color: var(--hiri);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.filtri select {
+    width: auto;
+    min-width: 220px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Faqja e detajeve te makines */
+
+.faqja-makines {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 5% 60px;
+}
+
+.kthehu {
+    display: inline-block;
+    margin-bottom: 22px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.kthehu:hover {
+    color: var(--ngjyra-ari);
+}
+
+.mesazhi-makines {
+    font-size: 20px;
+    text-align: center;
+}
+
+.mesazhi-makines:empty {
+    display: none;
+}
+
+.detajet {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 35px;
+    align-items: start;
+}
+
+.galeria {
+    position: relative;
+    background-color: #0A0A0A;
+    border: 1px solid var(--vija);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.galeria img {
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+}
+
+.galeria-shigjeta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid var(--ngjyra-kryesore);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--ngjyra-kryesore);
+    font-size: 18px;
+    letter-spacing: 0;
+}
+
+.galeria-shigjeta:hover {
+    background-color: var(--ngjyra-kryesore);
+    color: #111111;
+}
+
+.galeria-majtas {
+    left: 15px;
+}
+
+.galeria-djathtas {
+    right: 15px;
+}
+
+.detajet-majtas h1 {
+    margin-top: 28px;
+    font-size: 36px;
+}
+
+.detajet-majtas h2 {
+    margin-top: 28px;
+    font-size: 24px;
+    color: var(--ngjyra-kryesore);
+}
+
+.detajet-majtas p {
+    color: #CFCABF;
+}
+
+.pajisjet {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+    list-style: none;
+}
+
+.pajisjet li {
+    padding: 11px 14px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-radius: 3px;
+}
+
+.pajisjet li::before {
+    content: "\2713";
+    color: var(--ngjyra-kryesore);
+    font-weight: bold;
+    margin-right: 9px;
+}
+
+.shitesi {
+    padding: 28px;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-top: 3px solid var(--ngjyra-kryesore);
+    border-radius: 4px;
+}
+
+.shitesi h2 {
+    font-size: 24px;
+}
+
+.shitesi p {
+    margin-bottom: 8px;
+    color: #CFCABF;
+}
+
+.shitesi .btn {
+    display: block;
+    margin-top: 18px;
+}
+
+.cmimi-kutia {
+    padding: 28px 0 18px;
+    border-bottom: 1px solid var(--vija);
+}
+
+.cmimi-madh {
+    color: var(--ngjyra-kryesore);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.cmimi-kutia span {
+    color: var(--hiri);
+}
+
+.specifikat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    list-style: none;
+}
+
+.specifikat li {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--vija);
+}
+
+.specifikat li span {
+    color: var(--hiri);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.specifikat li strong {
+    color: var(--bardhe);
+    font-size: 18px;
 }
 
 /* Rreth nesh */
@@ -335,8 +627,36 @@ main:has(address) {
     margin: 0 auto;
 }
 
+main:has(address) > h1 {
+    text-align: center;
+    font-size: 42px;
+    padding: 60px 20px 0;
+}
+
+main:has(address) > h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 14px auto 0;
+    background-color: var(--ngjyra-kryesore);
+}
+
 main:has(address) section {
     padding: 35px 20px;
+}
+
+main:has(address) section h2 {
+    color: var(--ngjyra-kryesore);
+}
+
+main:has(address) ul {
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+main:has(address) li {
+    margin-bottom: 6px;
 }
 
 address {
@@ -345,15 +665,20 @@ address {
 }
 
 main:has(address) aside {
-    background-color: #F3E8D5;
-    padding: 25px;
-    margin: 25px 0;
+    background-color: var(--karta);
+    padding: 30px;
+    margin: 25px 20px 60px;
+    border: 1px solid var(--vija);
     border-left: 5px solid var(--ngjyra-kryesore);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 main:has(address) aside h2 {
-    color: var(--ngjyra-dyte);
+    color: var(--bardhe);
+}
+
+main:has(address) aside p {
+    margin-bottom: 0;
 }
 
 /* Login dhe Register */
@@ -361,8 +686,15 @@ main:has(address) aside h2 {
 main:has(form) {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+    align-items: flex-start;
+    padding: 50px 20px;
+}
+
+main:has(form) > section {
+    width: 100%;
+    max-width: 500px;
+    padding: 0;
+    text-align: center;
 }
 
 form {
@@ -370,16 +702,20 @@ form {
     flex-direction: column;
     gap: 15px;
     width: 100%;
-    max-width: 450px;
-    padding: 30px;
-    background-color: var(--bardhe);
-    border-radius: 10px;
-    border-top: 4px solid var(--ngjyra-kryesore);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-bottom: 20px;
+    padding: 35px;
+    text-align: left;
+    background-color: var(--karta);
+    border: 1px solid var(--vija);
+    border-top: 3px solid var(--ngjyra-kryesore);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 form label {
     font-weight: bold;
+    color: #D8D3C8;
 }
 
 input,
@@ -387,10 +723,17 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    background-color: #100F0E;
+    color: var(--teksti);
+    border: 1px solid #3A362F;
+    border-radius: 3px;
     font-size: 15px;
-    font-family: Arial, sans-serif;
+    font-family: inherit;
+}
+
+select option {
+    background-color: var(--karta);
+    color: var(--teksti);
 }
 
 input:focus,
@@ -398,7 +741,7 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--ngjyra-kryesore);
-    box-shadow: 0 0 5px rgba(214, 160, 74, 0.3);
+    box-shadow: 0 0 6px rgba(214, 160, 74, 0.35);
 }
 
 /* Radio dhe Checkbox */
@@ -407,6 +750,7 @@ input[type="radio"],
 input[type="checkbox"] {
     width: auto;
     margin-right: 8px;
+    accent-color: var(--ngjyra-kryesore);
 }
 
 form label:has(input[type="radio"]),
@@ -417,8 +761,8 @@ form label:has(input[type="checkbox"]) {
 }
 
 fieldset {
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    border: 1px solid #3A362F;
+    border-radius: 3px;
     padding: 15px;
 }
 
@@ -437,14 +781,15 @@ legend {
 
 .shfaq-fjalekalimin {
     flex-shrink: 0;
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 /* Mesazhi i gabimit */
 
 .mesazhi-gabimit {
-    color: #B3261E;
+    color: #FF7A6E;
     font-weight: bold;
     margin-bottom: 0;
 }
@@ -453,193 +798,26 @@ legend {
     display: none;
 }
 
-/* Filtri i katalogut */
-
-.filtri {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px 5% 25px;
-}
-
-.filtri select {
-    width: auto;
-    min-width: 200px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* Faqja e detajeve te makines */
-
-.faqja-makines {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 5% 50px;
-}
-
-.kthehu {
-    display: inline-block;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.mesazhi-makines {
-    font-size: 20px;
-    text-align: center;
-}
-
-.mesazhi-makines:empty {
-    display: none;
-}
-
-.detajet {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 30px;
-    align-items: start;
-}
-
-.galeria {
-    position: relative;
-    background-color: #e9e6df;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.galeria img {
-    display: block;
-    width: 100%;
-    height: 460px;
-    object-fit: cover;
-}
-
-.galeria-shigjeta {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.55);
-    color: var(--bardhe);
-    font-size: 18px;
-}
-
-.galeria-shigjeta:hover {
-    background-color: var(--ngjyra-kryesore);
-    color: var(--ngjyra-dyte);
-}
-
-.galeria-majtas {
-    left: 15px;
-}
-
-.galeria-djathtas {
-    right: 15px;
-}
-
-.detajet-majtas h1 {
-    margin-top: 25px;
-    font-size: 32px;
-}
-
-.detajet-majtas h2 {
-    margin-top: 25px;
-    font-size: 24px;
-}
-
-.pajisjet {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 10px;
-    list-style: none;
-}
-
-.pajisjet li {
-    padding: 10px 12px;
-    background-color: var(--bardhe);
-    border: 1px solid #e2ded6;
-    border-radius: 5px;
-}
-
-.pajisjet li::before {
-    content: "\2713";
-    color: var(--ngjyra-kryesore);
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.shitesi {
-    padding: 25px;
-    background-color: var(--bardhe);
-    border-radius: 10px;
-    border-top: 4px solid var(--ngjyra-kryesore);
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-}
-
-.shitesi h2 {
-    font-size: 24px;
-}
-
-.shitesi p {
-    margin-bottom: 8px;
-}
-
-.shitesi .btn {
-    display: block;
-    margin-top: 15px;
-}
-
-.cmimi-kutia {
-    padding: 25px 0 15px;
-    border-bottom: 1px solid #e2ded6;
-}
-
-.cmimi-madh {
-    color: var(--ngjyra-kryesore);
-    font-size: 38px;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-.specifikat {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 20px;
-    list-style: none;
-}
-
-.specifikat li {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 0;
-    border-bottom: 1px solid #e2ded6;
-}
-
-.specifikat li span {
-    color: var(--hiri);
-    font-size: 14px;
-}
-
-.specifikat li strong {
-    font-size: 18px;
-}
-
 /* Footer */
 
 footer {
     background-color: var(--ngjyra-dyte);
-    color: var(--bardhe);
+    color: #BDB7AB;
     text-align: center;
-    padding: 25px 15px;
+    padding: 45px 15px;
     margin-top: auto;
-    border-top: 2px solid var(--ngjyra-kryesore);
+    border-top: 1px solid var(--ngjyra-kryesore);
+}
+
+footer h2 {
+    color: var(--ngjyra-kryesore);
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+footer p {
+    margin-bottom: 6px;
 }
 
 footer a {
@@ -654,6 +832,10 @@ footer a:hover {
 
 @media (max-width: 768px) {
 
+    header {
+        position: static;
+    }
+
     nav {
         flex-direction: column;
     }
@@ -661,11 +843,16 @@ footer a:hover {
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 18px;
+    }
+
+    .hero {
+        padding: 100px 20px;
     }
 
     .hero h1 {
-        font-size: 30px;
+        font-size: 36px;
+        letter-spacing: 3px;
     }
 
     .makinat-vecanta {
@@ -673,7 +860,7 @@ footer a:hover {
     }
 
     .makinat-vecanta h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .pse-ne article {
@@ -691,15 +878,20 @@ footer a:hover {
 
     nav ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     .hero {
-        padding: 60px 15px;
+        padding: 70px 15px;
     }
 
     .hero h1 {
-        font-size: 25px;
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .hero p {
+        font-size: 17px;
     }
 
     .makinat-vecanta {
@@ -707,30 +899,34 @@ footer a:hover {
     }
 
     .makinat-vecanta h2 {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .makinat-vecanta article img {
         height: 200px;
     }
 
-    .galeria img {
-        height: 260px;
-    }
-
     .pse-ne article {
         flex: 1 1 100%;
     }
 
+    .galeria img {
+        height: 260px;
+    }
+
+    .cmimi-madh {
+        font-size: 34px;
+    }
+
     form {
-        padding: 20px;
+        padding: 22px;
     }
 
     section {
-        padding: 25px 15px;
+        padding: 35px 15px;
     }
 
     .oferta {
-        margin: 20px 15px;
+        margin: 30px 15px;
     }
 }
