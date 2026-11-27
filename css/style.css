@@ -453,39 +453,6 @@ legend {
     display: none;
 }
 
-/* Slider */
-
-.slider {
-    text-align: center;
-}
-
-.slider-karta {
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--bardhe);
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-    border-bottom: 3px solid var(--ngjyra-kryesore);
-}
-
-.slider-karta img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.slider-karta h3 {
-    margin-top: 10px;
-}
-
-.slider-butonat {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
 /* Filtri i katalogut */
 
 .filtri {
@@ -745,10 +712,6 @@ footer a:hover {
 
     .makinat-vecanta article img {
         height: 200px;
-    }
-
-    .slider-karta img {
-        height: 220px;
     }
 
     .galeria img {

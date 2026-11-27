@@ -1,4 +1,4 @@
-// Të dhënat e makinave (përdoren te slider-i dhe te faqja e detajeve)
+// Të dhënat e makinave (përdoren te faqja e detajeve)
 const makinat = [
     {
         id: "audi-a3",
@@ -95,63 +95,6 @@ for (const buton of butonatFjalekalimi) {
             buton.textContent = "Shfaq";
         }
     });
-}
-
-// 2. Slider (index.html)
-const sliderFoto = document.querySelector("#slider-foto");
-const sliderEmri = document.querySelector("#slider-emri");
-const sliderCmimi = document.querySelector("#slider-cmimi");
-const butoniPara = document.querySelector("#slider-para");
-const butoniPas = document.querySelector("#slider-pas");
-
-if (sliderFoto !== null && sliderEmri !== null && sliderCmimi !== null &&
-    butoniPara !== null && butoniPas !== null) {
-
-    let indeksi = 0;
-    let ndryshimiAutomatik = null;
-
-    function shfaqSlajdin() {
-        const makina = makinat[indeksi];
-        sliderFoto.src = makina.foto;
-        sliderFoto.alt = makina.emri;
-        sliderEmri.textContent = makina.emri;
-        sliderCmimi.textContent = "Çmimi: " + makina.cmimi;
-    }
-
-    function slajdiPas() {
-        indeksi++;
-        if (indeksi === makinat.length) {
-            indeksi = 0;
-        }
-        shfaqSlajdin();
-    }
-
-    function slajdiPara() {
-        if (indeksi === 0) {
-            indeksi = makinat.length - 1;
-        } else {
-            indeksi--;
-        }
-        shfaqSlajdin();
-    }
-
-    function nisNdryshimin() {
-        clearInterval(ndryshimiAutomatik);
-        ndryshimiAutomatik = setInterval(slajdiPas, 5000);
-    }
-
-    butoniPas.addEventListener("click", function () {
-        slajdiPas();
-        nisNdryshimin();
-    });
-
-    butoniPara.addEventListener("click", function () {
-        slajdiPara();
-        nisNdryshimin();
-    });
-
-    shfaqSlajdin();
-    nisNdryshimin();
 }
 
 // 3. Validimi i formularit Register
