@@ -1,4 +1,767 @@
+/* Variablat dhe stili baze */
+
+:root {
+    --ngjyra-kryesore: #D6A04A;
+    --ngjyra-dyte: #171615;
+    --ngjyra-ari: #E8C18A;
+    --sfondi: #F5F4F1;
+    --teksti: #222222;
+    --bardhe: #FFFFFF;
+    --hiri: #777777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--sfondi);
+    color: var(--teksti);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    color: var(--ngjyra-dyte);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--ngjyra-kryesore);
+}
+
+/* Butonat */
+
+button,
+.btn,
+.hero a,
+.oferta a {
+    display: inline-block;
+    background-color: var(--ngjyra-kryesore);
+    color: var(--ngjyra-dyte);
+    padding: 12px 25px;
+    border: 1px solid var(--ngjyra-kryesore);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover,
+.hero a:hover,
+.oferta a:hover {
+    background-color: transparent;
+    color: var(--ngjyra-kryesore);
+}
+
+/* Header dhe menyja */
+
+header {
+    background-color: var(--ngjyra-dyte);
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--ngjyra-kryesore);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
 .logo img {
-  height: 75px;
-  width: auto;
+    height: 60px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--bardhe);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--ngjyra-kryesore);
+}
+
+/* Seksionet e perbashketa */
+
+section {
+    padding: 40px 5%;
+}
+
+/* Hero */
+
+.hero {
+    background-color: var(--ngjyra-dyte);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                      url("../images/kerret.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--bardhe);
+    text-align: center;
+    padding: 110px 20px;
+}
+
+.hero h1 {
+    color: var(--ngjyra-kryesore);
+    font-size: 40px;
+}
+
+.hero p {
+    color: var(--bardhe);
+    font-size: 18px;
+}
+
+/* Makinat e vecanta */
+
+.makinat-vecanta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.makinat-vecanta h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.makinat-vecanta article {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bardhe);
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--ngjyra-kryesore);
+}
+
+.makinat-vecanta article img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.makinat-vecanta article h3 {
+    margin-top: 10px;
+}
+
+/* Pse ne */
+
+.pse-ne {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    text-align: center;
+}
+
+.pse-ne article {
+    flex: 1 1 250px;
+    padding: 25px;
+    background-color: var(--bardhe);
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pse-ne h3 {
+    color: var(--ngjyra-kryesore);
+}
+
+/* Oferta */
+
+.oferta {
+    background-color: var(--ngjyra-dyte);
+    color: var(--bardhe);
+    text-align: center;
+    padding: 45px 20px;
+    margin: 30px 5%;
+    border-radius: 8px;
+    border: 1px solid var(--ngjyra-kryesore);
+}
+
+.oferta h2 {
+    color: var(--ngjyra-kryesore);
+}
+
+.oferta p {
+    color: var(--bardhe);
+}
+
+/* makinat */
+
+main:has(.makina) > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.makina {
+    flex: 1 1 300px;
+    cursor: pointer;
+    max-width: 400px;
+    padding: 20px;
+    background-color: var(--bardhe);
+    border: 1px solid #e2ded6;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--ngjyra-kryesore);
+    transition: 0.3s;
+}
+
+.makina:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.makina img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.makina h2 {
+    margin: 15px 0 5px;
+    font-size: 24px;
+}
+
+.makina p {
+    color: var(--ngjyra-kryesore);
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.makina ul {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.makina ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.makina aside {
+    background-color: #F3E8D5;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+main:has(.makina) > h1 {
+    text-align: center;
+    font-size: 38px;
+    padding: 45px 5% 0;
+    margin-bottom: 8px;
+}
+
+main:has(.makina) > h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 12px auto 0;
+    background-color: var(--ngjyra-kryesore);
+    border-radius: 2px;
+}
+
+main:has(.makina) > p {
+    text-align: center;
+    color: var(--hiri);
+    font-size: 18px;
+    padding: 0 5%;
+    margin-bottom: 0;
+}
+
+main:has(.makina) > section {
+    padding-top: 30px;
+}
+
+main:has(.makina) > aside {
+    text-align: center;
+    margin: 0 5% 45px;
+    padding: 18px;
+    background-color: #F3E8D5;
+    border-left: 5px solid var(--ngjyra-kryesore);
+    border-radius: 5px;
+}
+
+main:has(.makina) > aside p {
+    margin-bottom: 0;
+}
+
+/* Rreth nesh */
+
+main:has(address) {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+main:has(address) section {
+    padding: 35px 20px;
+}
+
+address {
+    font-style: normal;
+    margin: 15px 0;
+}
+
+main:has(address) aside {
+    background-color: #F3E8D5;
+    padding: 25px;
+    margin: 25px 0;
+    border-left: 5px solid var(--ngjyra-kryesore);
+    border-radius: 5px;
+}
+
+main:has(address) aside h2 {
+    color: var(--ngjyra-dyte);
+}
+
+/* Login dhe Register */
+
+main:has(form) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    background-color: var(--bardhe);
+    border-radius: 10px;
+    border-top: 4px solid var(--ngjyra-kryesore);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--ngjyra-kryesore);
+    box-shadow: 0 0 5px rgba(214, 160, 74, 0.3);
+}
+
+/* Radio dhe Checkbox */
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+form label:has(input[type="radio"]),
+form label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+fieldset {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+legend {
+    padding: 0 8px;
+    font-weight: bold;
+    color: var(--ngjyra-kryesore);
+}
+
+/* Show/Hide fjalekalimi */
+
+.fusha-fjalekalimi {
+    display: flex;
+    gap: 10px;
+}
+
+.shfaq-fjalekalimin {
+    flex-shrink: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+/* Mesazhi i gabimit */
+
+.mesazhi-gabimit {
+    color: #B3261E;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.mesazhi-gabimit:empty {
+    display: none;
+}
+
+/* Slider */
+
+.slider {
+    text-align: center;
+}
+
+.slider-karta {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bardhe);
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--ngjyra-kryesore);
+}
+
+.slider-karta img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.slider-karta h3 {
+    margin-top: 10px;
+}
+
+.slider-butonat {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Filtri i katalogut */
+
+.filtri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 5% 25px;
+}
+
+.filtri select {
+    width: auto;
+    min-width: 200px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Faqja e detajeve te makines */
+
+.faqja-makines {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 5% 50px;
+}
+
+.kthehu {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mesazhi-makines {
+    font-size: 20px;
+    text-align: center;
+}
+
+.mesazhi-makines:empty {
+    display: none;
+}
+
+.detajet {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    align-items: start;
+}
+
+.galeria {
+    position: relative;
+    background-color: #e9e6df;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.galeria img {
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+}
+
+.galeria-shigjeta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: var(--bardhe);
+    font-size: 18px;
+}
+
+.galeria-shigjeta:hover {
+    background-color: var(--ngjyra-kryesore);
+    color: var(--ngjyra-dyte);
+}
+
+.galeria-majtas {
+    left: 15px;
+}
+
+.galeria-djathtas {
+    right: 15px;
+}
+
+.detajet-majtas h1 {
+    margin-top: 25px;
+    font-size: 32px;
+}
+
+.detajet-majtas h2 {
+    margin-top: 25px;
+    font-size: 24px;
+}
+
+.pajisjet {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+    list-style: none;
+}
+
+.pajisjet li {
+    padding: 10px 12px;
+    background-color: var(--bardhe);
+    border: 1px solid #e2ded6;
+    border-radius: 5px;
+}
+
+.pajisjet li::before {
+    content: "\2713";
+    color: var(--ngjyra-kryesore);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.shitesi {
+    padding: 25px;
+    background-color: var(--bardhe);
+    border-radius: 10px;
+    border-top: 4px solid var(--ngjyra-kryesore);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shitesi h2 {
+    font-size: 24px;
+}
+
+.shitesi p {
+    margin-bottom: 8px;
+}
+
+.shitesi .btn {
+    display: block;
+    margin-top: 15px;
+}
+
+.cmimi-kutia {
+    padding: 25px 0 15px;
+    border-bottom: 1px solid #e2ded6;
+}
+
+.cmimi-madh {
+    color: var(--ngjyra-kryesore);
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.specifikat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    list-style: none;
+}
+
+.specifikat li {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2ded6;
+}
+
+.specifikat li span {
+    color: var(--hiri);
+    font-size: 14px;
+}
+
+.specifikat li strong {
+    font-size: 18px;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--ngjyra-dyte);
+    color: var(--bardhe);
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: auto;
+    border-top: 2px solid var(--ngjyra-kryesore);
+}
+
+footer a {
+    color: var(--ngjyra-kryesore);
+}
+
+footer a:hover {
+    color: var(--ngjyra-ari);
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .makinat-vecanta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .makinat-vecanta h2 {
+        font-size: 28px;
+    }
+
+    .pse-ne article {
+        flex: 1 1 40%;
+    }
+
+    .detajet {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* telefon */
+
+@media (max-width: 480px) {
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .makinat-vecanta {
+        grid-template-columns: 1fr;
+    }
+
+    .makinat-vecanta h2 {
+        font-size: 25px;
+    }
+
+    .makinat-vecanta article img {
+        height: 200px;
+    }
+
+    .slider-karta img {
+        height: 220px;
+    }
+
+    .galeria img {
+        height: 260px;
+    }
+
+    .pse-ne article {
+        flex: 1 1 100%;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    section {
+        padding: 25px 15px;
+    }
+
+    .oferta {
+        margin: 20px 15px;
+    }
 }

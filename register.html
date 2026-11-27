@@ -1,25 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="sq">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
+
     <header>
-    <nav>
-      <a href="index.html" class="logo">andi</a>
-      <ul>
-        <li><a href="index.html">Ballina</a></li>
-        <li><a href="makinat.html">Makinat</a></li>
-        <li><a href="rreth-nesh.html">Rreth nesh</a></li>
-        <li><a href="login.html">Log In</a></li>
-        <li><a href="register.html">Register</a></li>
-      </ul>
-    </nav>
-  </header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/and.png" alt="ANDI Premium Cars Logo">
+            </a>
+            <ul>
+                <li><a href="index.html">Ballina</a></li>
+                <li><a href="makinat.html">Makinat</a></li>
+                <li><a href="rreth-nesh.html">Rreth nesh</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Krijo llogari</h1>
+
+            <form action="#" method="post">
+
+                <label for="emri">Emri:</label>
+                <input type="text" id="emri" name="emri" required>
+
+                <label for="mbiemri">Mbiemri:</label>
+                <input type="text" id="mbiemri" name="mbiemri" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefoni">Numri i telefonit:</label>
+                <input type="tel" id="telefoni" name="telefoni">
+
+                <label for="password">Fjalëkalimi:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="konfirmo-password">Konfirmo fjalëkalimin:</label>
+                <input type="password" id="konfirmo-password" name="konfirmo-password" required>
+
+                <label for="qyteti">Qyteti:</label>
+                <select id="qyteti" name="qyteti" required>
+                    <option value="">Zgjidh qytetin</option>
+                    <option value="Prishtine">Prishtinë</option>
+                    <option value="Prizren">Prizren</option>
+                    <option value="Peje">Pejë</option>
+                    <option value="Gjakove">Gjakovë</option>
+                    <option value="Ferizaj">Ferizaj</option>
+                    <option value="Gjilan">Gjilan</option>
+                    <option value="Mitrovice">Mitrovicë</option>
+                </select>
+
+                <fieldset>
+                    <legend>Lloji i klientit:</legend>
+
+                    <input type="radio" id="individ" name="klienti" value="individ" required>
+                    <label for="individ">Individ</label>
+
+                    <input type="radio" id="biznes" name="klienti" value="biznes">
+                    <label for="biznes">Biznes</label>
+                </fieldset>
+
+                <div>
+                    <input type="checkbox" id="kushtet" name="kushtet" required>
+                    <label for="kushtet">Pranoj kushtet e përdorimit</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="ofertat" name="ofertat" value="po">
+                    <label for="ofertat">Dua të marr oferta me email</label>
+                </div>
+
+                <button type="submit">Regjistrohu</button>
+
+            </form>
+
+            <p>Ke llogari? <a href="login.html">Hyr këtu</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <h2>ANDI Premium Cars</h2>
+
+        <p>Telefon: +383 44 40 99 22</p>
+        <p>Email: andipremiumcars@gmail.com</p>
+
+        <p>
+            Adresa: Magjistralja Prishtine - Ferizaj,
+            Kilometri i 8, Prishtine
+        </p>
+
+        <p>&copy; 2026 ANDI Premium Cars. Te gjitha te drejtat e rezervuara.</p>
+    </footer>
+
 </body>
 </html>
