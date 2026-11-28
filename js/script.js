@@ -1,4 +1,3 @@
-// Të dhënat e makinave (përdoren te faqja e detajeve)
 const makinat = [
     {
         id: "audi-a3",
@@ -80,7 +79,6 @@ const makinat = [
     }
 ];
 
-// 1. Show/Hide fjalekalimi (login dhe register)
 const butonatFjalekalimi = document.querySelectorAll(".shfaq-fjalekalimin");
 
 for (const buton of butonatFjalekalimi) {
@@ -97,7 +95,79 @@ for (const buton of butonatFjalekalimi) {
     });
 }
 
-// 3. Validimi i formularit Register
+const slajdet = document.querySelectorAll(".makinat-vecanta article");
+const slajdPara = document.querySelector("#slajd-para");
+const slajdPas = document.querySelector("#slajd-pas");
+const slajdPikat = document.querySelector("#slajd-pikat");
+
+if (slajdet.length > 0 && slajdPara !== null && slajdPas !== null && slajdPikat !== null) {
+    let indeksi = 0;
+    let kohamatesi = null;
+
+    function shfaqSlajdin() {
+        const pikat = slajdPikat.querySelectorAll("button");
+
+        for (let i = 0; i < slajdet.length; i++) {
+            if (i === indeksi) {
+                slajdet[i].classList.remove("hidden");
+                pikat[i].classList.add("aktive");
+            } else {
+                slajdet[i].classList.add("hidden");
+                pikat[i].classList.remove("aktive");
+            }
+        }
+    }
+
+    function slajdiTjeter() {
+        indeksi++;
+        if (indeksi === slajdet.length) {
+            indeksi = 0;
+        }
+        shfaqSlajdin();
+    }
+
+    function slajdiPara() {
+        if (indeksi === 0) {
+            indeksi = slajdet.length - 1;
+        } else {
+            indeksi--;
+        }
+        shfaqSlajdin();
+    }
+
+    function nisNdrrimin() {
+        clearInterval(kohamatesi);
+        kohamatesi = setInterval(slajdiTjeter, 5000);
+    }
+
+    for (let i = 0; i < slajdet.length; i++) {
+        const pika = document.createElement("button");
+        pika.type = "button";
+        pika.setAttribute("aria-label", "Makina " + (i + 1));
+
+        pika.addEventListener("click", function () {
+            indeksi = i;
+            shfaqSlajdin();
+            nisNdrrimin();
+        });
+
+        slajdPikat.appendChild(pika);
+    }
+
+    slajdPas.addEventListener("click", function () {
+        slajdiTjeter();
+        nisNdrrimin();
+    });
+
+    slajdPara.addEventListener("click", function () {
+        slajdiPara();
+        nisNdrrimin();
+    });
+
+    shfaqSlajdin();
+    nisNdrrimin();
+}
+
 const formaRegister = document.querySelector("#forma-register");
 
 if (formaRegister !== null) {
@@ -130,7 +200,6 @@ if (formaRegister !== null) {
         }
     });
 
-    // Kur përdoruesi korrigjon, mesazhi përditësohet ose fshihet
     function perditesoMesazhin() {
         if (mesazhiGabimit.textContent !== "") {
             mesazhiGabimit.textContent = gjejGabimin();
@@ -141,7 +210,6 @@ if (formaRegister !== null) {
     fushaKonfirmo.addEventListener("input", perditesoMesazhin);
 }
 
-// 4. Filtri i katalogut (makinat.html)
 const filtriMarka = document.querySelector("#filtri-marka");
 
 if (filtriMarka !== null) {
@@ -162,7 +230,6 @@ if (filtriMarka !== null) {
     });
 }
 
-// 5. Login: pas "Hyr" kalon te faqja kryesore
 const formaLogin = document.querySelector("#forma-login");
 
 if (formaLogin !== null) {
@@ -173,7 +240,6 @@ if (formaLogin !== null) {
     });
 }
 
-// 6. Kur përdoruesi është kyçur, fshihen Log In dhe Register
 const lidhjaLogin = document.querySelector('nav a[href="login.html"]');
 const lidhjaRegister = document.querySelector('nav a[href="register.html"]');
 
@@ -198,7 +264,6 @@ if (localStorage.getItem("perdoruesiKyqur") === "po" &&
     listaMenyse.appendChild(elementiDil);
 }
 
-// 7. Faqja e detajeve të makinës (makina.html)
 const detajEmri = document.querySelector("#detaj-emri");
 
 if (detajEmri !== null) {
@@ -288,7 +353,6 @@ if (detajEmri !== null) {
     }
 }
 
-// 8. Kartelat te makinat.html hapin faqen e detajeve kur klikohen
 const kartelatKlikueshme = document.querySelectorAll(".makina");
 
 for (const kartela of kartelatKlikueshme) {
